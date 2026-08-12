@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тренажёр управления — Français Vivant</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body{ background:
+    radial-gradient(ellipse 45% 35% at 90% 0%, var(--green-pale) 0%, transparent 60%),
+    var(--paper);
+  }
+  .stats-line{ text-align:center; font-size:.85rem; color:var(--ink-soft); margin-bottom:26px; }
+  #exSentence{ font-family:var(--serif); font-size:1.35rem; line-height:2.1; }
+  #exTranslation{ color:var(--ink-soft); font-size:.9rem; margin-top:14px; }
+</style>
+</head>
+<body>
+<a class="ig-badge" href="https://instagram.com/mariia.grii" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+  @mariia.grii
+</a>
+<header class="topbar">
+  <a class="brand" href="index.html">Français Vivant</a>
+  <nav>
+    <a href="conjugation.html">База спряжений</a>
+    <a href="trainer-conjugaison.html">Тренажёр спряжений</a>
+    <a href="gouvernance.html">Управление глаголов</a>
+    <a href="trainer-gouvernance.html" class="active">Тренажёр управления</a>
+  </nav>
+</header>
+
+<div class="page-wrap" style="max-width:760px;">
+
+  <div id="configView">
+    <p class="trainer-title green">Заполни пропуски правильными предлогами</p>
+    <h1 style="text-align:center;font-size:2.1rem;">Тренажёр управления глаголов</h1>
+    <p class="stats-line" id="statsLine"></p>
+
+    <div class="card trainer-config">
+      <div class="config-block">
+        <label class="block-label">Количество заданий</label>
+        <div class="chip-row" id="countChips">
+          <div class="chip">10</div>
+          <div class="chip active">20</div>
+          <div class="chip">50</div>
+          <div class="chip">70</div>
+          <div class="chip">100</div>
+        </div>
+        <input class="text-input" id="customCount" type="number" min="1" max="500" placeholder="Своё количество" style="margin-top:10px; max-width:200px;">
+      </div>
+
+      <div class="config-block">
+        <label class="block-label">Слитные артикли (au / du / aux / des)</label>
+        <div class="chip-row" id="articleChips">
+          <div class="chip active green" data-val="no">Без слитных артиклей</div>
+          <div class="chip" data-val="yes">Со слитными артиклями</div>
+        </div>
+      </div>
+
+      <button class="btn btn-green" id="startBtn" style="align-self:center; margin-top:8px;">Начать тренировку →</button>
+    </div>
+  </div>
+
+  <div id="exerciseView" style="display:none;">
+    <div class="card exercise-card confetti-pop" style="max-width:640px;">
+      <div class="exercise-progress" id="exProgress"></div>
+      <div id="exSentence"></div>
+      <div id="exTranslation"></div>
+      <div class="exercise-feedback" id="exFeedback"></div>
+      <div class="exercise-actions">
+        <button class="btn btn-green" id="exCheckBtn">Проверить</button>
+        <button class="btn btn-pink" id="exNextBtn" style="display:none;">Дальше →</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="resultView" style="display:none;">
+    <div class="card result-card">
+      <div class="result-score" id="resScore"></div>
+      <div class="result-title" id="resTitle"></div>
+      <div class="result-lines" id="resLines"></div>
+      <div class="exercise-actions">
+        <button class="btn btn-green" id="playAgainBtn">Ещё раз с теми же настройками</button>
+        <button class="btn btn-ghost" id="restartBtn">Изменить настройки</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">Français Vivant</footer>
+</div>
+
+<script src="js/data-gouvernance.js"></script>
+<script src="js/trainer-gouvernance.js"></script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Français Vivant — тренажёр французского</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body{ overflow-x:hidden; }
+  .hero{
+    position:relative; min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; padding:40px 20px;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute; inset:0; z-index:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 18% 20%, var(--pink-soft) 0%, transparent 60%),
+      radial-gradient(ellipse 55% 45% at 82% 78%, var(--green-soft) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 60% at 50% 100%, var(--green-pale) 0%, transparent 70%),
+      var(--paper);
+    filter: blur(0px);
+  }
+  .hero-blob{ position:absolute; z-index:0; opacity:.55; filter: blur(2px); mix-blend-mode: multiply; }
+  .eyebrow-hero{
+    font-size:.78rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+    color: var(--ink-soft); margin-bottom:18px; position:relative; z-index:1;
+  }
+  .hero h1{
+    position:relative; z-index:1; font-size: clamp(2.6rem, 7vw, 5rem); line-height:1.02; margin-bottom:20px;
+    background: linear-gradient(100deg, var(--pink-deep) 10%, var(--ink) 45%, var(--green-deep) 90%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p.lead{ position:relative; z-index:1; max-width:560px; font-size:1.08rem; color: var(--ink-soft); margin-bottom:44px; }
+  .choice-row{ position:relative; z-index:1; display:flex; gap:22px; flex-wrap:wrap; justify-content:center; }
+  .choice-card{
+    width:270px; border-radius:26px; padding:32px 26px; text-align:left; text-decoration:none;
+    box-shadow: var(--shadow); position:relative; overflow:hidden; transition: transform .25s ease;
+    color:#fff;
+  }
+  .choice-card:hover{ transform: translateY(-6px) scale(1.015); }
+  .choice-card.pink{ background: linear-gradient(150deg, var(--pink) 0%, var(--pink-deep) 100%); }
+  .choice-card.green{ background: linear-gradient(150deg, var(--green) 0%, var(--green-deep) 100%); }
+  .choice-card .num{ font-family: var(--serif); font-style:italic; opacity:.7; font-size:.85rem; margin-bottom:14px; display:block;}
+  .choice-card h2{ color:#fff; font-size:1.55rem; margin-bottom:10px; }
+  .choice-card p{ color: rgba(255,255,255,0.88); font-size:.9rem; margin-bottom:22px; }
+  .choice-card .go{ font-weight:800; font-size:.85rem; display:inline-flex; align-items:center; gap:6px; }
+  .scroll-hint{ position:relative; z-index:1; margin-top:56px; font-size:.75rem; color:var(--ink-soft); letter-spacing:.08em; }
+</style>
+</head>
+<body>
+
+<a class="ig-badge" href="https://instagram.com/mariia.grii" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+  @mariia.grii
+</a>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="quote-field" id="quoteField"></div>
+
+  <div class="eyebrow-hero">Твой личный курс французского</div>
+  <h1>Français&nbsp;Vivant</h1>
+  <p class="lead">Насмотренность и нарешанность спряжений и управлений — в двух тренажёрах, которые запомнят твой прогресс. До экзамена в сентябре ещё есть время.</p>
+
+  <div class="choice-row">
+    <a class="choice-card pink" href="conjugation.html">
+      <span class="num">01</span>
+      <h2>Спряжение глаголов</h2>
+      <p>Полная база регулярных моделей и глаголов-исключений + тренажёр на любое время и лицо.</p>
+      <span class="go">Открыть блок →</span>
+    </a>
+    <a class="choice-card green" href="gouvernance.html">
+      <span class="num">02</span>
+      <h2>Управление глаголов</h2>
+      <p>Алфавитный словарь предложных конструкций + тренажёр на заполнение пропусков.</p>
+      <span class="go">Открыть блок →</span>
+    </a>
+  </div>
+
+  <div class="scroll-hint">Прогресс тренажёров сохраняется в этом браузере автоматически</div>
+</section>
+
+<footer class="site-footer">Français Vivant · сделано с любовью к делу — и немного к дедлайну</footer>
+
+<script>
+const QUOTES = [
+  "La plus grande gloire n'est pas de ne jamais tomber, mais de se relever à chaque chute",
+  "Ne perdez pas de temps car cela fait la vie",
+  "Le destin aide les personnes courageuses",
+  "Идущий осилит дорогу",
+  "У страха глаза велики",
+  "Qui ne risque rien n'a rien",
+  "Век живи — век учись",
+  "Petit à petit, l'oiseau fait son nid",
+  "Терпение и труд всё перетрут",
+];
+const field = document.getElementById('quoteField');
+QUOTES.forEach((q, i) => {
+  const s = document.createElement('span');
+  s.textContent = q;
+  s.style.top = (Math.random() * 92) + '%';
+  s.style.left = (Math.random() * 70) + '%';
+  s.style.fontSize = (0.9 + Math.random() * 1.3) + 'rem';
+  s.style.transform = `rotate(${(Math.random() * 10 - 5)}deg)`;
+  field.appendChild(s);
+});
+</script>
+</body>
+</html>

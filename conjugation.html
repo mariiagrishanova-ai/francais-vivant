@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>База спряжений — Français Vivant</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body{ background:
+    radial-gradient(ellipse 40% 30% at 95% 0%, var(--pink-pale) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 0% 100%, var(--green-pale) 0%, transparent 60%),
+    var(--paper);
+  }
+  .hint{ font-size:.92rem; color:var(--ink-soft); max-width:640px; }
+</style>
+</head>
+<body>
+<a class="ig-badge" href="https://instagram.com/mariia.grii" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+  @mariia.grii
+</a>
+
+<header class="topbar">
+  <a class="brand" href="index.html">Français Vivant</a>
+  <nav>
+    <a href="conjugation.html" class="active">База спряжений</a>
+    <a href="trainer-conjugaison.html">Тренажёр спряжений</a>
+    <a href="gouvernance.html">Управление глаголов</a>
+    <a href="trainer-gouvernance.html">Тренажёр управления</a>
+  </nav>
+</header>
+
+<div class="page-wrap">
+  <div class="quote-field" style="position:fixed;"><span style="top:12%;left:8%;">L'union fait la force</span><span style="top:70%;left:75%;">Терпение и труд всё перетрут</span></div>
+
+  <h1 style="font-size:2.4rem;">Спряжение глаголов</h1>
+  <p class="hint">Полная база: базовая модель 1-й группы и все её орфографические особенности (appeler, lever, préférer, payer/envoyer, manger, commencer), модель 2-й группы, регулярная модель 3-й группы и — ниже — полный свод глаголов-исключений с семьями однокоренных глаголов.</p>
+
+  <div style="margin-top:24px; max-width:420px;">
+    <input id="conjSearch" class="text-input" placeholder="Поиск по глаголу или переводу…">
+  </div>
+
+  <div class="section-title"><span class="eyebrow">Часть 1</span><h2>1-я группа (-er): модель и сложные случаи</h2></div>
+  <div id="modelZone"></div>
+
+  <div class="section-title"><span class="eyebrow">Часть 1</span><h2>2-я группа (-ir): модель choisir</h2></div>
+  <div id="group2Zone"></div>
+
+  <div class="section-title"><span class="eyebrow">Часть 1</span><h2>3-я группа: регулярная модель на -re</h2></div>
+  <div id="group3Zone"></div>
+
+  <div class="section-title green"><span class="eyebrow">Часть 1</span><h2>Полный свод глаголов-исключений</h2></div>
+  <p class="hint">Собраны по смысловым семьям: если знаешь одно спряжение — почти бесплатно получаешь ещё 3–6 однокоренных глаголов (prendre → apprendre, comprendre, surprendre…). Обрати внимание на карточки с 💡 — там разобраны каверзные места.</p>
+  <div id="irregZone"></div>
+
+  <footer class="site-footer">Français Vivant · база дополняется — см. README проекта</footer>
+</div>
+
+<script src="js/conj-engine.js"></script>
+<script src="js/data-conjugaison.js"></script>
+<script src="js/page-conjugation.js"></script>
+</body>
+</html>

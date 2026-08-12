@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Тренажёр спряжений — Français Vivant</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body{ background:
+    radial-gradient(ellipse 45% 35% at 90% 0%, var(--pink-pale) 0%, transparent 60%),
+    var(--paper);
+  }
+  .stats-line{ text-align:center; font-size:.85rem; color:var(--ink-soft); margin-bottom:26px; }
+</style>
+</head>
+<body>
+<a class="ig-badge" href="https://instagram.com/mariia.grii" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+  @mariia.grii
+</a>
+<header class="topbar">
+  <a class="brand" href="index.html">Français Vivant</a>
+  <nav>
+    <a href="conjugation.html">База спряжений</a>
+    <a href="trainer-conjugaison.html" class="active">Тренажёр спряжений</a>
+    <a href="gouvernance.html">Управление глаголов</a>
+    <a href="trainer-gouvernance.html">Тренажёр управления</a>
+  </nav>
+</header>
+
+<div class="page-wrap" style="max-width:760px;">
+
+  <!-- ============ КОНФИГУРАЦИЯ ============ -->
+  <div id="configView">
+    <p class="trainer-title">Спрягай меня полностью</p>
+    <h1 style="text-align:center;font-size:2.1rem;">Тренажёр спряжений</h1>
+    <p class="stats-line" id="statsLine"></p>
+
+    <div class="card trainer-config">
+      <div class="config-block">
+        <label class="block-label">Группа глаголов</label>
+        <div class="chip-row" id="groupChips"></div>
+      </div>
+
+      <div class="config-block">
+        <label class="block-label">Конкретные глаголы (необязательно)</label>
+        <div class="autocomplete-wrap">
+          <input class="text-input" id="verbSearchInput" placeholder="Начни вводить глагол — appuyer, prendre…">
+          <div class="autocomplete-list" id="verbAutocomplete"></div>
+        </div>
+        <div class="chip-row" id="chosenVerbs" style="margin-top:10px;"></div>
+        <button class="btn btn-ghost btn-sm" id="verbsAllBtn" style="margin-top:10px;">Сбросить — все глаголы</button>
+      </div>
+
+      <div class="config-block">
+        <label class="block-label">Времена и наклонения</label>
+        <div class="chip-row" id="tenseChips"></div>
+      </div>
+
+      <div class="config-block">
+        <label class="block-label">Количество заданий</label>
+        <div class="chip-row" id="countChips">
+          <div class="chip">10</div>
+          <div class="chip active">20</div>
+          <div class="chip">50</div>
+          <div class="chip">100</div>
+        </div>
+        <input class="text-input" id="customCount" type="number" min="1" max="500" placeholder="Своё количество" style="margin-top:10px; max-width:200px;">
+      </div>
+
+      <button class="btn btn-pink" id="startBtn" style="align-self:center; margin-top:8px;">Начать тренировку →</button>
+    </div>
+  </div>
+
+  <!-- ============ УПРАЖНЕНИЕ ============ -->
+  <div id="exerciseView" style="display:none;">
+    <div class="card exercise-card confetti-pop">
+      <div class="exercise-progress" id="exProgress"></div>
+      <div class="exercise-prompt" id="exPrompt"></div>
+      <div class="exercise-sub" id="exSub"></div>
+      <input class="exercise-input" id="exInput" autocomplete="off" spellcheck="false" placeholder="твой ответ…">
+      <div class="exercise-feedback" id="exFeedback"></div>
+      <div class="exercise-actions">
+        <button class="btn btn-pink" id="exCheckBtn">Проверить</button>
+        <button class="btn btn-green" id="exNextBtn" style="display:none;">Дальше →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ РЕЗУЛЬТАТ ============ -->
+  <div id="resultView" style="display:none;">
+    <div class="card result-card">
+      <div class="result-score" id="resScore"></div>
+      <div class="result-title" id="resTitle"></div>
+      <div class="result-lines" id="resLines"></div>
+      <div class="exercise-actions">
+        <button class="btn btn-pink" id="playAgainBtn">Ещё раз с теми же настройками</button>
+        <button class="btn btn-ghost" id="restartBtn">Изменить настройки</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">Français Vivant</footer>
+</div>
+
+<script src="js/conj-engine.js"></script>
+<script src="js/data-conjugaison.js"></script>
+<script src="js/trainer-conjugaison.js"></script>
+</body>
+</html>
